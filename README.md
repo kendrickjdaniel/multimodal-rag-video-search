@@ -1,19 +1,18 @@
-Multimodal RAG for Video Content
-Overview
+**Multimodal RAG for Video Content Overview**
 
 This project demonstrates a multimodal Retrieval-Augmented Generation (RAG) system that enables semantic search and grounded generation over video content by combining:
 
-audio transcription
+- audio transcription
 
-visual frame embeddings
+- visual frame embeddings
 
-joint text–image similarity
+- joint text–image similarity
 
-retrieval-based generation
+- retrieval-based generation
 
 The goal is to show how unstructured video data can be transformed into a searchable, architecture-ready knowledge system.
 
-Architecture Summary
+**Architecture Summary**
 
 Pipeline:
 
@@ -33,7 +32,7 @@ Generate grounded responses using retrieved context
 
 This mirrors how enterprise AI systems move from raw media → embeddings → retrieval → generation.
 
-Why This Matters
+**Why This Matters**
 
 Most real-world enterprise data is multimodal (videos, meetings, demos, training).
 This project shows how to:
@@ -53,8 +52,8 @@ training content search
 decision support systems
 
 internal AI tooling
-
-Tech Stack
+**
+Tech Stack**
 
 Python
 
