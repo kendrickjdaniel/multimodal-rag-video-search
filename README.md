@@ -1,80 +1,96 @@
-**Multimodal RAG for Video Content Overview**
+# Multimodal RAG for Video Content
 
-This project demonstrates a multimodal Retrieval-Augmented Generation (RAG) system that enables semantic search and grounded generation over video content by combining:
+This project demonstrates a **multimodal Retrieval-Augmented Generation (RAG)** pipeline that enables semantic search and grounded generation over video content.
 
-- audio transcription
+By combining audio transcription, visual frame embeddings, and cross-modal retrieval, the system turns raw video into a searchable, architecture-ready knowledge source.
 
-- visual frame embeddings
+---
 
-- joint text–image similarity
+## What This Project Does
 
-- retrieval-based generation
+At a high level, the pipeline:
 
-The goal is to show how unstructured video data can be transformed into a searchable, architecture-ready knowledge system.
+- Extracts and transcribes audio from video
+- Samples visual frames at fixed intervals
+- Embeds text and images into a shared semantic space
+- Performs similarity search across modalities
+- Retrieves relevant text + frames
+- Generates grounded responses using retrieved context
 
-**Architecture Summary**
+This mirrors how enterprise AI systems move from **raw media → embeddings → retrieval → generation**.
 
-Pipeline:
+---
 
-Extract audio from video and compress it
+## Architecture Overview
 
-Transcribe audio using OpenAI Whisper
+**Pipeline Flow**
 
-Extract video frames at fixed intervals
+1. Extract audio from video and compress it  
+2. Transcribe audio using OpenAI Whisper  
+3. Extract video frames at fixed intervals  
+4. Generate embeddings:
+   - Text embeddings from transcripts
+   - Image embeddings from frames
+5. Perform similarity search across text and image embeddings  
+6. Retrieve the most relevant multimodal context  
+7. Generate grounded responses using an LLM
 
-Embed text and images into a shared semantic space (CLIP)
+The result is a retrieval-first system that reasons over both spoken and visual information, not just text.
 
-Perform similarity search across modalities
+---
 
-Retrieve relevant text + frames
+## Why This Matters
 
-Generate grounded responses using retrieved context
+Most real-world enterprise data is **multimodal**:
+- recorded meetings
+- product demos
+- training videos
+- internal walkthroughs
 
-This mirrors how enterprise AI systems move from raw media → embeddings → retrieval → generation.
-
-**Why This Matters**
-
-Most real-world enterprise data is multimodal (videos, meetings, demos, training).
 This project shows how to:
 
-move beyond text-only RAG
+- Move beyond text-only RAG
+- Reason over visual + spoken context
+- Design retrieval-based systems that scale past toy demos
 
-reason over visual + spoken context
+Common use cases include:
 
-design systems that scale past toy examples
+- Knowledge management and internal search
+- Training and enablement content discovery
+- Decision support systems
+- Internal AI tooling for teams
 
-This is especially relevant for:
+---
 
-knowledge management
+## Tech Stack
 
-training content search
+- **Python**
+- **OpenAI Whisper** – audio transcription
+- **CLIP (ViT-L/14)** – joint text-image embeddings
+- **MoviePy / FFmpeg** – media processing
+- **Scikit-learn** – cosine similarity search
+- **OpenAI GPT models** – grounded generation
 
-decision support systems
+---
 
-internal AI tooling
-**
-Tech Stack**
+## Key Concepts Demonstrated
 
-Python
+- Multimodal embeddings
+- Chunking strategies for long transcripts
+- Cross-modal similarity search
+- Retrieval-driven generation
+- AI systems thinking vs. prompt-level demos
 
-OpenAI Whisper (audio transcription)
+---
 
-CLIP (ViT-L/14) for joint text–image embeddings
+## Project Goal
 
-MoviePy / FFmpeg for media processing
+The goal of this project is not to build a polished product, but to demonstrate system-level thinking:
 
-Scikit-learn (cosine similarity)
+- how multimodal data flows through an AI pipeline
+- how retrieval grounds generation
+- how real-world AI systems are composed from modular components
 
-OpenAI GPT model for grounded generation
+This project is part of a broader portfolio focused on **RAG pipelines, embeddings, and applied AI system design**.
 
-Key Concepts Demonstrated
 
-Multimodal embeddings
-
-Chunking strategies for long transcripts
-
-Similarity search across modalities
-
-Retrieval-driven generation
-
-AI systems thinking vs. prompt-level demos
